@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat-App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="app">
+        <div class="window">
+            <div class="d-flex">
+                <a class="btn btn-disabled py-2 text-white w-50" id="login">Login</a>
+                <a class="btn btn-dark py-2 text-white w-50" id="signup">Sign Up</a>
+            </div>
+            <div class="forms">
+                <div class="loginWindow active">
+                    <form class="form" method="POST" action="/login" spellcheck="false" autocomplete="off">
+                        <% if(loginError!==""){ %>
+                            <div class="bg-danger text-white w-100 text-center py-2"><%= loginError %></div>
+                        <% } %>
+                        <div class="form-floating my-3 w-100">
+                            <input type="email" class="form-control input" name="email" id="email" placeholder="johndoe@example.com"/>
+                            <label for="email">Enter Email Address</label>
+                        </div>
+                        <div class="form-floating my-3 w-100">
+                            <input type="password" class="form-control input" name="password" id="password" placeholder="********"/>
+                            <label for="password">Enter Password</label>
+                        </div>
+                        <div class="form-floating w-100 text-white">
+                            <input type="checkbox" name="showPass" id="showPass">
+                            Show Password
+                        </div>
+                        <button class="btn btn-success w-100 py-2 my-2">Login</button>
+                        <a href="/forgotpassword" class="text-secondary my-3">Forgot Password?</a>
+                    </form>
+                </div>
+                <div class="regWindow">
+                    <form class="form" method="POST" action="/register" spellcheck="false" autocomplete="off">
+                        <% if(regError!==""){ %>
+                            <div class="bg-danger text-white w-100 text-center py-2"><%= regError %></div>
+                        <% } %>
+                        <div class="form-floating my-3 w-100">
+                            <input type="text" class="form-control input" name="name" id="name" placeholder="John Doe"/>
+                            <label for="name">Enter Full Name</label>
+                        </div>
+                        <div class="form-floating my-3 w-100">
+                            <input type="email" class="form-control input" name="email" id="email" placeholder="johndoe@example.com"/>
+                            <label for="email">Enter Email Address</label>
+                        </div>
+                        <div class="form-floating my-3 w-100">
+                            <input type="password" class="form-control input" name="password" id="password" placeholder="********"/>
+                            <label for="password">Enter Password</label>
+                        </div>
+                        <button class="btn btn-secondary w-100 py-2">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
